@@ -1,0 +1,17 @@
+{
+  "name": "html-coverage-transform",
+  "version": "0.0.1",
+  "description": "Adds coverage components to html",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Dexter Edwards",
+  "license": "MIT",
+  "devDependencies": {
+    "moch": "0.0.1"
+  },
+  "dependencies": {
+    "posthtml": "^0.13.0"
+  }
+}
