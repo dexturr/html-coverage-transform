@@ -19,7 +19,6 @@ describe('Statement transform renders the correct output', () => {
       const res = ph.process(text, { sync: true })
       const expected = fs.readFileSync(`${outputFilePath}/${file}`, { encoding: 'UTF-8' })
       
-      console.log(res.html)
       assert.equal(res.html, expected)
     })
   })
