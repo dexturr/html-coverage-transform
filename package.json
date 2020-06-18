@@ -4,12 +4,13 @@
   "description": "Adds coverage components to html",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha ./tests/run-tests.js"
   },
   "author": "Dexter Edwards",
   "license": "MIT",
   "devDependencies": {
-    "moch": "0.0.1"
+    "moch": "0.0.1",
+    "mocha": "^8.0.1"
   },
   "dependencies": {
     "posthtml": "^0.13.0"
