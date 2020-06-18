@@ -6,7 +6,10 @@ const ph = posthtml()
 
 const statementComponentName = 'test'
 const generateCoverageStatement = () => ({
-  tag: 't-s'
+  tag: 't-s',
+  attrs: {
+    ':statement-id': 1
+  }
 })
 
 const isNewLine = (n) => {
@@ -34,7 +37,7 @@ const addCoverageStatementsForNode = (node) => {
 ph.use(function (tree) {
   tree.match({ tag: 'template' }, (node) => {
     if (hasContent(node)) {
-    return addCoverageStatementsForNode(node)
+      return addCoverageStatementsForNode(node)
     }
     return {
       ...node
