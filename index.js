@@ -5,20 +5,43 @@ const text = fs.readFileSync('./test.html', { encoding: 'UTF-8' })
 const ph = posthtml()
 
 const statementComponentName = 'test'
-let count = 0
-ph.use(function (tree) {
-  tree.walk(function (node) {
-    if (Array.isArray(node.content)) {
-      if (node.content[0].tag !== statementComponentName) {
-        node.content = node
-          .content
-          .map(t => t.tag ? [{ tag: statementComponentName }, t] : [t])
-          .reduce((acc, cur) => [...acc, ...cur], [])
-      }
+const generateCoverageStatement = () => ({
+  tag: 't-s'
+})
+
+const isNewLine = (n) => {
+  return typeof n === 'string' && n.includes('\n')
+}
+
+const hasContent = (n) => {
+  return typeof n === 'object' && Array.isArray(n.content)
+}
+
+const addCoverageStatementsForNode = (node) => {
+  node.content = node.content.reduce((acc, n) => {
+    if (hasContent(n)) {
+      return [...acc, addCoverageStatementsForNode(n)]
+    } else if (isNewLine(n)) {
+      return [...acc, generateCoverageStatement(), n]
     }
-    return node
+    return [...acc, n]
+  }, [])
+  return {
+    ...node
+  }
+}
+
+ph.use(function (tree) {
+  tree.match({ tag: 'template' }, (node) => {
+    if (hasContent(node)) {
+    return addCoverageStatementsForNode(node)
+    }
+    return {
+      ...node
+    }
   })
 })
+
 const res = ph.process(text, { sync: true })
-console.log('%o', res.tree)
+
 console.log(res.html)
