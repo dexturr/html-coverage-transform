@@ -13,7 +13,9 @@
     "istanbul-lib-report": "^3.0.0",
     "istanbul-reports": "^3.0.2",
     "moch": "0.0.1",
-    "mocha": "^8.0.1"
+    "mocha": "^8.0.1",
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11"
   },
   "dependencies": {
     "posthtml": "^0.13.0"
