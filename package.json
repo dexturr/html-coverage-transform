@@ -15,8 +15,7 @@
     "moch": "0.0.1",
     "mocha": "^8.0.1",
     "vue": "^2.6.11",
-    "vue-server-renderer": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue-server-renderer": "^2.6.11"
   },
   "dependencies": {
     "posthtml": "^0.13.0"
