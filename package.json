@@ -9,6 +9,9 @@
   "author": "Dexter Edwards",
   "license": "MIT",
   "devDependencies": {
+    "istanbul-lib-coverage": "^3.0.0",
+    "istanbul-lib-report": "^3.0.0",
+    "istanbul-reports": "^3.0.2",
     "moch": "0.0.1",
     "mocha": "^8.0.1"
   },
