@@ -1,3 +1,4 @@
+const compiler = require('vue-template-compiler')
 const fs = require('fs')
 
 // Step 1: Create a Vue instance
