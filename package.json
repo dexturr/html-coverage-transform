@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/run-tests.js",
-    "test:sfc": "jest"
+    "test:sfc": "jest --no-cache"
   },
   "author": "Dexter Edwards",
   "license": "MIT",
