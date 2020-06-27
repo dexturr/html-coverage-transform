@@ -104,7 +104,17 @@ module.exports = function (tree) {
       if (hasContent(node)) {
         const result = addCoverageStatementsForNode(node, statementMap, locationInformation)
         console.log(statementMap)
-        return result
+        
+        // Add a single plain div tag wrapping so that the vue compiler doesn't freak
+        return {
+          tag: 'template',
+          content: [
+            {
+              tag: 'div',
+              content: result.content
+            }
+          ]
+        }
       } else {
         throw new Error('Template tag could not be parsed as it has no content')
       }
