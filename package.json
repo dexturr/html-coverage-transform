@@ -27,6 +27,7 @@
     "posthtml": "^0.13.0"
   },
   "jest": {
+    "collectCoverage": true,
     "moduleFileExtensions": [
       "js",
       "json",
