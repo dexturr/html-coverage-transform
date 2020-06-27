@@ -4,20 +4,37 @@
   "description": "Adds coverage components to html",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/run-tests.js"
+    "test": "mocha ./tests/run-tests.js",
+    "test:sfc": "jest"
   },
   "author": "Dexter Edwards",
   "license": "MIT",
   "devDependencies": {
+    "@vue/test-utils": "^1.0.3",
+    "babel-core": "^6.26.3",
     "istanbul-lib-coverage": "^3.0.0",
     "istanbul-lib-report": "^3.0.0",
     "istanbul-reports": "^3.0.2",
+    "jest": "^26.1.0",
     "moch": "0.0.1",
     "mocha": "^8.0.1",
     "vue": "^2.6.11",
-    "vue-server-renderer": "^2.6.11"
+    "vue-jest": "^3.0.5",
+    "vue-server-renderer": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
     "posthtml": "^0.13.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
   }
 }
