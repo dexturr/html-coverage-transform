@@ -1,12 +1,23 @@
 const utils = require('@vue/test-utils')
 const Component = require('./test.vue')
-const TS = require('./template-statement.vue')
 
 describe('Component', () => {
   test('is a Vue instance', () => {
     const wrapper = utils.mount(Component, {
         components: {
-            't-s': TS
+            't-s': {
+                functional: true,
+                props: {
+                    statementId: {
+                        type: Number,
+                        required: true
+                    }
+                },
+                render (createElement, context) {
+                    console.log(window.__coverage__)
+                    return createElement('span', {}, `Statement coverage component ${context.props.statementId}`)
+                }
+            }
         }
     })
     console.log(wrapper.html())
