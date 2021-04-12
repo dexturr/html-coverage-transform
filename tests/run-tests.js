@@ -8,6 +8,7 @@ const inputFilePath = path.resolve('./tests/input')
 const outputFilePath = path.resolve('./tests/output')
 
 const files = fs.readdirSync(inputFilePath);
+
 describe('Statement transform renders the correct output', () => {
     files.forEach((file) => {
     it(`functions for ${file.split('.')[0]}`, () => {

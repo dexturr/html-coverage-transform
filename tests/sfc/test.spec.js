@@ -14,7 +14,7 @@ describe('Component', () => {
                     }
                 },
                 render (createElement, context) {
-                    console.log(window.__coverage__)
+                    // console.log('%o', window.__coverage__)
                     return createElement('span', {}, `Statement coverage component ${context.props.statementId}`)
                 }
             }

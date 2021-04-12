@@ -103,7 +103,6 @@ module.exports = function (tree) {
     tree.match({ tag: 'template' }, (node) => {
       if (hasContent(node)) {
         const result = addCoverageStatementsForNode(node, statementMap, locationInformation)
-        console.log(statementMap)
         
         // Add a single plain div tag wrapping so that the vue compiler doesn't freak
         return {

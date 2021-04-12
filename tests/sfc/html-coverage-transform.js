@@ -12,13 +12,12 @@ const posthtml = require('posthtml')
 const process = (src, ...rest) => {
     const ph = posthtml()
 
-
     ph.use(templateInstrumenter)
-
     const res = ph.process(src, { sync: true })
-    console.log(res.html)
 
-    return vueJestProcess(res.html, ...rest)
+    const result = vueJestProcess(res.html, ...rest)
+    console.log(result)
+    return result
   }
 
 module.exports = {
